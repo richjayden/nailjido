@@ -87,6 +87,48 @@ const HIGH_TT=[
   {s:4,q:"어떤 어른이 되고 싶어?",L:{t:"저 사람한테 물어보면 답 나와",e:"🧠",r:{I:2}},R:{t:"저 사람 있으면 힘이 나",e:"🌈",r:{S:2}}},
   {s:4,q:"마지막! 더 끌리는 세계는?",L:{t:"🔧  만들고 구현하는 세계",e:"",r:{R:3}},R:{t:"🔭  탐구하고 발견하는 세계",e:"",r:{I:3}}},
 ];
+
+const ADULT_TT=[
+  {s:0,q:"업무 중 가장 에너지가 생기는 순간은?",L:{t:"직접 만들거나 실행하고 있을 때",e:"🔧",r:{R:2}},R:{t:"복잡한 문제를 분석하고 파악할 때",e:"🔬",r:{I:2}}},
+  {s:0,q:"회의에서 내 역할은?",L:{t:"아이디어보다 실행 방법 먼저 고민",e:"⚙️",r:{R:2}},R:{t:"창의적 방향이나 다른 시각 제시",e:"💡",r:{A:2}}},
+  {s:0,q:"퇴근 후 에너지를 얻는 방법은?",L:{t:"혼자 조용히 쉬거나 집중 활동",e:"🧘",r:{I:1,C:1}},R:{t:"사람 만나거나 소통하는 시간",e:"💬",r:{S:2}}},
+  {s:0,q:"새 프로젝트를 맡으면?",L:{t:"일단 빠르게 실행하면서 파악",e:"🚀",r:{R:1,E:1}},R:{t:"체계적으로 계획 세우고 검토 후 시작",e:"📋",r:{I:1,C:1}}},
+  {s:0,q:"업무 스타일을 한 마디로 표현하면?",L:{t:"직접 발로 뛰는 현장형",e:"👟",r:{R:2}},R:{t:"데이터와 논리로 접근하는 분석형",e:"📊",r:{I:2}}},
+  {s:0,q:"가장 보람 있었던 경험은?",L:{t:"내가 만들거나 실행해서 결과가 나왔을 때",e:"✅",r:{R:2}},R:{t:"사람들이 내 덕분에 달라졌을 때",e:"🌱",r:{S:2}}},
+  {s:0,q:"스트레스를 가장 많이 받는 상황은?",L:{t:"아무것도 만들어지지 않고 논의만 계속될 때",e:"😤",r:{R:2}},R:{t:"정해진 틀에 맞춰야 하고 자유가 없을 때",e:"🙄",r:{A:2}}},
+  {s:0,q:"이상적인 업무 환경은?",L:{t:"현장·제작·실험실처럼 직접 하는 곳",e:"🏗️",r:{R:2}},R:{t:"자유롭고 창의적 분위기",e:"🎨",r:{A:2}}},
+  {s:1,q:"팀에서 자연스럽게 맡게 되는 역할은?",L:{t:"직접 실행하고 완성하는 역할",e:"🔧",r:{R:2}},R:{t:"자료 조사·분석·정리하는 역할",e:"📝",r:{I:2}}},
+  {s:1,q:"나를 힘들게 하는 팀원 유형은?",L:{t:"행동 없이 말만 많은 사람",e:"💬",r:{R:2}},R:{t:"원리 이해 없이 무조건 따라 하는 사람",e:"🤷",r:{I:2}}},
+  {s:1,q:"내가 잘한다는 피드백을 가장 많이 받는 건?",L:{t:"실행력·추진력·완성도",e:"💪",r:{R:1,E:1}},R:{t:"분석력·논리적 사고·정확성",e:"🧠",r:{I:2}}},
+  {s:1,q:"프레젠테이션할 때 나는?",L:{t:"시각적 임팩트와 디자인에 집중",e:"🎨",r:{A:2}},R:{t:"설득력 있는 논리 구성에 집중",e:"📣",r:{E:2}}},
+  {s:1,q:"업무에서 가장 싫은 것은?",L:{t:"규정·절차·승인이 너무 많을 때",e:"📏",r:{A:2}},R:{t:"목표나 방향이 불명확할 때",e:"🧭",r:{C:2}}},
+  {s:1,q:"동료들이 나를 어떻게 볼 것 같아?",L:{t:"믿음직하고 실행력 있는 사람",e:"💪",r:{R:2}},R:{t:"따뜻하고 배려심 있는 사람",e:"💝",r:{S:2}}},
+  {s:1,q:"업무 중 몰입이 잘 되는 순간은?",L:{t:"혼자 집중해서 뭔가를 완성할 때",e:"🎯",r:{R:1,I:1}},R:{t:"팀과 함께 시너지 낼 때",e:"🤝",r:{S:1,E:1}}},
+  {s:1,q:"리더십 스타일은?",L:{t:"앞장서서 직접 보여주는 방식",e:"🏃",r:{R:1,E:1}},R:{t:"구성원 각자의 강점을 살리는 방식",e:"🌱",r:{S:2}}},
+  {s:2,q:"이직을 고민할 때 가장 중요한 기준은?",L:{t:"실제로 만들고 실행하는 일인가",e:"🔧",r:{R:2}},R:{t:"계속 배우고 성장할 수 있는 환경인가",e:"📈",r:{I:2}}},
+  {s:2,q:"이상적인 커리어는?",L:{t:"손에 잡히는 결과물을 만드는 전문가",e:"🏗️",r:{R:2}},R:{t:"창의적으로 표현하고 독창적인 작업",e:"🎨",r:{A:2}}},
+  {s:2,q:"지금 하는 일에서 가장 아쉬운 점은?",L:{t:"내가 직접 실행할 기회가 부족해",e:"😤",r:{R:2}},R:{t:"사람과 소통하거나 도울 기회가 적어",e:"💝",r:{S:2}}},
+  {s:2,q:"5년 후 커리어 목표는?",L:{t:"내 분야 최고 전문가·장인이 되는 것",e:"🏆",r:{R:1,I:1}},R:{t:"팀과 조직을 이끄는 리더가 되는 것",e:"🌟",r:{E:2}}},
+  {s:2,q:"부업이나 사이드 프로젝트를 한다면?",L:{t:"직접 만들거나 제작하는 것",e:"🔨",r:{R:2}},R:{t:"크리에이티브하고 표현하는 것",e:"✏️",r:{A:2}}},
+  {s:2,q:"가장 끌리는 업무 환경은?",L:{t:"체계적이고 안정적인 조직",e:"🏢",r:{C:2}},R:{t:"유연하고 자율적인 환경",e:"🕊️",r:{A:2}}},
+  {s:2,q:"커리어에서 후회하고 싶지 않은 것은?",L:{t:"내가 원하는 걸 해보지 못한 것",e:"🌈",r:{A:2}},R:{t:"더 많은 사람에게 영향 못 미친 것",e:"🌍",r:{S:1,E:1}}},
+  {s:2,q:"이상적인 일의 의미는?",L:{t:"내 기술로 세상에 없는 걸 만드는 것",e:"🚀",r:{R:2}},R:{t:"사람들의 삶을 실질적으로 개선하는 것",e:"💝",r:{S:2}}},
+  {s:3,q:"회식이나 모임에서 나는?",L:{t:"조용히 있다가 깊은 대화가 생기면 빛나",e:"🙂",r:{I:1,C:1}},R:{t:"자연스럽게 분위기를 이끌거나 조율해",e:"🤝",r:{S:1,E:1}}},
+  {s:3,q:"동료가 나에게 뭔가를 부탁하면?",L:{t:"내가 직접 해주거나 같이 해결해줌",e:"🛠️",r:{R:1,S:1}},R:{t:"방법을 알려주고 스스로 하게 함",e:"💡",r:{I:1,S:1}}},
+  {s:3,q:"업무 갈등이 생기면?",L:{t:"논리적 근거로 해결하려고 함",e:"📊",r:{I:1,C:1}},R:{t:"대화로 빠르게 풀려고 함",e:"💬",r:{S:1,E:1}}},
+  {s:3,q:"성취감을 가장 크게 느끼는 순간은?",L:{t:"완성된 결과물을 봤을 때",e:"✅",r:{R:2}},R:{t:"누군가에게 인정받거나 영향을 미쳤을 때",e:"🏆",r:{E:1,S:1}}},
+  {s:3,q:"나를 가장 잘 표현하는 단어는?",L:{t:"실행·꼼꼼·뚝심·완성",e:"💪",r:{R:2}},R:{t:"공감·따뜻함·소통·배려",e:"💝",r:{S:2}}},
+  {s:3,q:"일하면서 가장 에너지를 주는 사람은?",L:{t:"같이 만들고 실행하는 동료",e:"🤜",r:{R:2}},R:{t:"아이디어와 인사이트를 주는 동료",e:"💡",r:{I:2}}},
+  {s:3,q:"퇴사를 결심하게 만드는 건?",L:{t:"직접 실행할 수 없고 보고만 해야 할 때",e:"😤",r:{R:2}},R:{t:"내가 하는 일의 의미를 못 느낄 때",e:"💔",r:{S:1,A:1}}},
+  {s:3,q:"나를 가장 힘들게 하는 건?",L:{t:"이해 없이 지시만 따르라고 할 때",e:"😮‍💨",r:{I:2}},R:{t:"혼자 모든 걸 짊어지는 느낌",e:"😔",r:{S:2}}},
+  {s:4,q:"10년 후 어떤 모습이면 성공이야?",L:{t:"내 분야 최고 전문가로 인정받는 것",e:"🏅",r:{I:1,R:1}},R:{t:"많은 사람들에게 영향력 있는 리더",e:"🌟",r:{E:1,S:1}}},
+  {s:4,q:"어떤 일을 할 때 시간 가는 줄 몰라?",L:{t:"직접 만들거나 제작·설계할 때",e:"🔧",r:{R:2}},R:{t:"창작하거나 표현할 때",e:"🎨",r:{A:2}}},
+  {s:4,q:"커리어를 바꾼다면 어떤 이유로?",L:{t:"더 직접적으로 실행하는 일이 하고 싶어서",e:"⚡",r:{R:2}},R:{t:"더 의미 있고 사람 중심의 일이 하고 싶어서",e:"🌱",r:{S:2}}},
+  {s:4,q:"일에서 가장 두려운 것은?",L:{t:"내 기술이 뒤처지거나 전문성이 없어지는 것",e:"📉",r:{R:1,I:1}},R:{t:"아무도 나를 필요로 하지 않는 것",e:"😔",r:{S:1,E:1}}},
+  {s:4,q:"이상적인 하루는?",L:{t:"뭔가를 만들거나 완성한 날",e:"✅",r:{R:2}},R:{t:"누군가에게 도움이 됐거나 영향을 준 날",e:"🌟",r:{S:2}}},
+  {s:4,q:"커리어에서 가장 중요한 가치는?",L:{t:"전문성과 실력",e:"🏆",r:{R:1,I:1}},R:{t:"사람과 관계",e:"💝",r:{S:2}}},
+  {s:4,q:"마지막! 일에서 더 끌리는 세계는?",L:{t:"🔧  만들고 실행하고 완성하는 세계",e:"",r:{R:3}},R:{t:"🔬  탐구하고 분석하고 발견하는 세계",e:"",r:{I:3}}},
+];
 const MIDDLE_TT=[
   {s:0,q:"쉬는 시간에 손이 먼저 가는 건?",L:{t:"뭔가 만지작거리거나 고치기",e:"🔧",r:{R:2}},R:{t:"궁금한 거 검색하거나 유튜브",e:"🔬",r:{I:2}}},
   {s:0,q:"같은 반 친구들이 나를 어떻게 볼까?",L:{t:"감각 있고 뭔가 독특한 애",e:"🎨",r:{A:2}},R:{t:"따뜻하고 사람 잘 챙기는 애",e:"💬",r:{S:2}}},
@@ -366,7 +408,7 @@ function getTeaser(hollandSc){
   const msgs={R:"🔧 만드는 성향이 강하게 보여요!",I:"🔬 탐구하는 성향이 강하게 보여요!",A:"🎨 예술적 감각이 강하게 느껴져요!",S:"💬 사람 중심 성향이 강하게 보여요!",E:"🚀 이끄는 성향이 강하게 보여요!",C:"📋 체계적인 성향이 강하게 보여요!"};
   return msgs[top]||null;
 }
-function analyzeResult(hollandSc,valueSc,isMiddle){
+function analyzeResult(hollandSc,valueSc,isMiddle,grade){
   const top=topN(hollandSc,3);
   const primary=top[0]||'S';
   const secondary=top[1];
@@ -378,7 +420,8 @@ function analyzeResult(hollandSc,valueSc,isMiddle){
   const topValues=Object.entries(valueSc).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>k).filter(k=>valueSc[k]>0);
   const tagline=COMBO_TAGLINES[comboKey]||(COMBO_TAGLINES[primary]||'');
   const deepText=DEEP_CARD1[comboKey]||(DEEP_CARD1[primary]||'');
-  return{comboKey,primary,secondary,tagline,deepText,careers:combinedCareers,topValues,topCodes:top,isMiddle,
+  const isAdult=['대학생','이직 고민','직장인'].includes(grade||'');
+  return{comboKey,primary,secondary,tagline,deepText,careers:combinedCareers,topValues,topCodes:top,isMiddle,isAdult,
     reference:"Holland(1997) RIASEC · Savickas(2005) CCT · Lent & Brown(2002) SCCT · Savickas & Porfeli(2012) · 한국고용정보원(2023)"};
 }
 
@@ -393,9 +436,16 @@ function Welcome({onStart}){
         <p style={{fontSize:13,color:"#52525B",marginBottom:4}}>내일 · 내 일 · 지도</p>
         <p style={{fontSize:14,color:"#71717A",lineHeight:1.8,marginBottom:32}}>직관적으로 선택하면<br/>나만의 진로가 보여요</p>
         <p style={{fontSize:13,color:"#A1A1AA",marginBottom:14,fontWeight:500}}>해당하는 곳을 선택해주세요</p>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:28}}>
+        <p style={{fontSize:12,color:"#52525B",marginBottom:10}}>🏫 학생</p>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:10}}>
           {[{l:"중학생",c:"#14B8A6",bg:"rgba(20,184,166,0.15)"},{l:"고등학생",c:"#3B82F6",bg:"rgba(59,130,246,0.15)"}].map(({l,c,bg})=>(
-            <button key={l} onClick={()=>setGrade(l)} style={{padding:"22px 8px",borderRadius:16,border:`2px solid ${grade===l?c:"#3F3F46"}`,background:grade===l?bg:"#1C1C1F",color:grade===l?c:"#D4D4D8",fontSize:17,fontWeight:grade===l?800:500,cursor:"pointer"}}>{l}</button>
+            <button key={l} onClick={()=>setGrade(l)} style={{padding:"18px 8px",borderRadius:14,border:`2px solid ${grade===l?c:"#3F3F46"}`,background:grade===l?bg:"#1C1C1F",color:grade===l?c:"#D4D4D8",fontSize:15,fontWeight:grade===l?800:500,cursor:"pointer"}}>{l}</button>
+          ))}
+        </div>
+        <p style={{fontSize:12,color:"#52525B",marginBottom:10,marginTop:4}}>🎯 청년 / 성인</p>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,marginBottom:24}}>
+          {[{l:"대학생",c:"#8B5CF6",bg:"rgba(139,92,246,0.15)"},{l:"이직 고민",c:"#F59E0B",bg:"rgba(245,158,11,0.15)"},{l:"직장인",c:"#EF4444",bg:"rgba(239,68,68,0.15)"}].map(({l,c,bg})=>(
+            <button key={l} onClick={()=>setGrade(l)} style={{padding:"16px 6px",borderRadius:14,border:`2px solid ${grade===l?c:"#3F3F46"}`,background:grade===l?bg:"#1C1C1F",color:grade===l?c:"#D4D4D8",fontSize:13,fontWeight:grade===l?800:500,cursor:"pointer",lineHeight:1.4}}>{l}</button>
           ))}
         </div>
         <button onClick={()=>grade&&onStart(grade)} style={{width:"100%",padding:15,borderRadius:14,background:grade?"#14B8A6":"#27272A",color:grade?"white":"#52525B",fontSize:15,fontWeight:700,border:"none",cursor:grade?"pointer":"default"}}>
@@ -445,17 +495,24 @@ function Question({qi,QS,onAnswer}){
     setChosen(side);
     setAnimating(true);
     setTimeout(()=>{
-      onAnswer(side==='L'?q.L.r:q.R.r);
+      if(side==='M'){
+        const merged={};
+        Object.entries(q.L.r).forEach(([k,v])=>{merged[k]=(merged[k]||0)+1;});
+        Object.entries(q.R.r).forEach(([k,v])=>{merged[k]=(merged[k]||0)+1;});
+        onAnswer(merged);
+      } else {
+        onAnswer(side==='L'?q.L.r:q.R.r);
+      }
     },280);
   };
 
   const cardStyle=(side)=>({
-    flex:1,minHeight:160,borderRadius:20,border:`2px solid ${chosen===side?"#14B8A6":"#2A2A2E"}`,
-    background:chosen===side?"rgba(20,184,166,0.15)":(chosen&&chosen!==side?"rgba(0,0,0,0.3)":"#1C1C1F"),
+    flex:1,minHeight:150,borderRadius:20,border:`2px solid ${chosen===side?"#14B8A6":"#2A2A2E"}`,
+    background:chosen===side?"rgba(20,184,166,0.15)":(chosen==='M'?"#161618":"(chosen&&chosen!==side?'rgba(0,0,0,0.3)':'#1C1C1F')"),
     display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",
-    padding:"24px 16px",cursor:"pointer",transition:"all 0.2s ease",
+    padding:"20px 14px",cursor:"pointer",transition:"all 0.2s ease",
     transform:chosen===side?"scale(0.97)":"scale(1)",
-    opacity:chosen&&chosen!==side?0.35:1,
+    opacity:chosen==='M'?0.5:(chosen&&chosen!==side?0.35:1),
   });
 
   const opt=side=>side==='L'?q.L:q.R;
@@ -481,15 +538,19 @@ function Question({qi,QS,onAnswer}){
         <h2 style={{fontSize:19,fontWeight:800,color:"white",textAlign:"center",lineHeight:1.5,marginBottom:32}}>{q.q}</h2>
 
         {/* THIS OR THAT 카드 */}
-        <div style={{display:"flex",gap:14,marginBottom:24}}>
+        <div style={{display:"flex",gap:10,marginBottom:16}}>
           {['L','R'].map(side=>(
             <div key={side} style={cardStyle(side)} onClick={()=>handlePick(side)}>
-              {opt(side).e&&<span style={{fontSize:40,marginBottom:12,display:"block"}}>{opt(side).e}</span>}
-              <span style={{fontSize:14,fontWeight:600,color:chosen===side?"#14B8A6":"#D4D4D8",textAlign:"center",lineHeight:1.5}}>{opt(side).t}</span>
+              {opt(side).e&&<span style={{fontSize:36,marginBottom:10,display:"block"}}>{opt(side).e}</span>}
+              <span style={{fontSize:13,fontWeight:600,color:chosen===side?"#14B8A6":"#D4D4D8",textAlign:"center",lineHeight:1.5}}>{opt(side).t}</span>
             </div>
           ))}
         </div>
-        <p style={{textAlign:"center",fontSize:12,color:"#3F3F46"}}>탭하면 바로 다음으로 넘어가요</p>
+        {/* 비슷해요 버튼 */}
+        <div onClick={()=>handlePick('M')} style={{width:"100%",padding:"13px 0",borderRadius:14,border:`1.5px solid ${chosen==='M'?"#14B8A6":"#2A2A2E"}`,background:chosen==='M'?"rgba(20,184,166,0.1)":"#111113",textAlign:"center",cursor:"pointer",marginBottom:8,transition:"all 0.2s"}}>
+          <span style={{fontSize:14,fontWeight:600,color:chosen==='M'?"#14B8A6":"#52525B"}}>🤝 비슷해요 — 둘 다 끌리거나 애매해요</span>
+        </div>
+        <p style={{textAlign:"center",fontSize:11,color:"#3F3F46"}}>직관적으로 골라요 — 생각하지 말고 느끼는 대로!</p>
       </div>
     </div>
   );
@@ -522,7 +583,7 @@ function Result({result,grade,onRetry}){
     <div style={{minHeight:"100vh",background:"#09090B",fontFamily:"-apple-system,'Apple SD Gothic Neo',sans-serif"}}>
       {/* 상단 헤더 */}
       <div style={{background:"linear-gradient(180deg,#111113 0%,#09090B 100%)",padding:"28px 20px 24px",textAlign:"center",borderBottom:"1px solid #1F1F23"}}>
-        <p style={{fontSize:10,color:"#14B8A6",letterSpacing:"0.2em",marginBottom:12,fontWeight:600}}>내일지도 — {isMiddle?"나의 진로 탐색":"나의 진로 이야기"}</p>
+        <p style={{fontSize:10,color:"#14B8A6",letterSpacing:"0.2em",marginBottom:12,fontWeight:600}}>내일지도 — {isMiddle?"나의 진로 탐색":result.isAdult?"나의 커리어 나침반":"나의 진로 이야기"}</p>
         <div style={{display:"inline-block",background:"rgba(20,184,166,0.15)",border:"1.5px solid #14B8A6",borderRadius:100,padding:"6px 20px",marginBottom:12}}>
           <span style={{fontSize:16,fontWeight:800,color:"#14B8A6"}}>{result.comboKey} 유형</span>
         </div>
@@ -587,7 +648,7 @@ function Result({result,grade,onRetry}){
       {/* 카드 2 — 진로 가이드 */}
       {card===2&&(
         <div style={{padding:"20px 18px",maxWidth:440,margin:"0 auto",animation:"fadeIn 0.3s ease"}}>
-          <p style={{fontSize:11,color:"#71717A",marginBottom:14,fontWeight:600}}>{isMiddle?"탐색 분야 4가지":"추천 진로 4가지"}</p>
+          <p style={{fontSize:11,color:"#71717A",marginBottom:14,fontWeight:600}}>{isMiddle?"탐색 분야 4가지":result.isAdult?"커리어 방향 4가지":"추천 진로 4가지"}</p>
 
           {(result.careers||[]).map((c,i)=>(
             <div key={i} style={{background:"#111113",border:"1px solid #2A2A2E",borderRadius:20,padding:20,marginBottom:14}}>
@@ -599,15 +660,15 @@ function Result({result,grade,onRetry}){
                 </div>
               </div>
               <div style={{background:"#0D0D0F",borderRadius:12,padding:14,marginBottom:12}}>
-                <p style={{fontSize:10,color:"#71717A",fontWeight:700,marginBottom:6,letterSpacing:"0.08em"}}>{isMiddle?"어떤 분야야?":"어떤 하루를 보낼까"}</p>
+                <p style={{fontSize:10,color:"#71717A",fontWeight:700,marginBottom:6,letterSpacing:"0.08em"}}>{isMiddle?"어떤 분야야?":result.isAdult?"어떤 커리어인가요":"어떤 하루를 보낼까"}</p>
                 <p style={{fontSize:13,lineHeight:1.75,color:"#A1A1AA",margin:0}}>{c.day}</p>
               </div>
               <div style={{marginBottom:12}}>
-                <p style={{fontSize:10,color:"#71717A",fontWeight:700,marginBottom:6,letterSpacing:"0.08em"}}>{isMiddle?"왜 나한테 맞을까?":"왜 나에게 맞을까"}</p>
+                <p style={{fontSize:10,color:"#71717A",fontWeight:700,marginBottom:6,letterSpacing:"0.08em"}}>{isMiddle?"왜 나한테 맞을까?":result.isAdult?"왜 나에게 맞는 방향인가요":"왜 나에게 맞을까"}</p>
                 <p style={{fontSize:13,lineHeight:1.75,color:"#A1A1AA",margin:0}}>{c.why}</p>
               </div>
               <div style={{marginBottom:c.majors&&c.majors.length>0?12:0}}>
-                <p style={{fontSize:10,color:"#71717A",fontWeight:700,marginBottom:8,letterSpacing:"0.08em"}}>{isMiddle?"지금 해볼 수 있는 것":"첫 걸음"}</p>
+                <p style={{fontSize:10,color:"#71717A",fontWeight:700,marginBottom:8,letterSpacing:"0.08em"}}>{isMiddle?"지금 해볼 수 있는 것":result.isAdult?"커리어 전환 첫 걸음":"첫 걸음"}</p>
                 {c.path&&c.path.map((p,pi)=>(
                   <div key={pi} style={{display:"flex",gap:8,marginBottom:5}}>
                     <span style={{color:"#14B8A6",fontWeight:800,flexShrink:0,fontSize:13}}>{pi+1}.</span>
@@ -688,7 +749,8 @@ function App(){
     return()=>clearInterval(t);
   },[screen]);
 
-  const QS=isMiddle?[...MIDDLE_TT,...VAL_TT]:[...HIGH_TT,...VAL_TT];
+  const isAdult=['대학생','이직 고민','직장인'].includes(grade);
+  const QS=isMiddle?[...MIDDLE_TT,...VAL_TT]:isAdult?[...ADULT_TT,...VAL_TT]:[...HIGH_TT,...VAL_TT];
 
   const handleStart=(g)=>{
     setGrade(g);setIsMiddle(g.startsWith('중'));
@@ -710,7 +772,7 @@ function App(){
         newAns.forEach(a=>Object.entries(a).forEach(([k,v])=>{if(k in allScores)allScores[k]+=v;}));
         const h={R:allScores.R,I:allScores.I,A:allScores.A,S:allScores.S,E:allScores.E,C:allScores.C};
         const v={"돈":allScores.돈,"안정":allScores.안정,"의미":allScores.의미,"자유":allScores.자유,"성장":allScores.성장,"인정":allScores.인정};
-        setResult(analyzeResult(h,v,isMiddle));
+        setResult(analyzeResult(h,v,isMiddle,grade));
         setScreen('result');
       },3500);
     }
